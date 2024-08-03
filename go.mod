@@ -1,6 +1,6 @@
 module practice
 
-go 1.22.3
+go 1.18
 
 require github.com/gorilla/sessions v1.3.0
 
