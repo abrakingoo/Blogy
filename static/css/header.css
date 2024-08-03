@@ -1,0 +1,59 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    /* text-align: center; */
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    position: static;
+    left: 0;
+    top: 0;
+    z-index: 999;
+}
+
+header .h1 {
+    width: 100%;
+}
+
+header div h1 {
+    margin-right: auto;
+    margin-left: 30px;
+    color: white;
+    align-self: left;
+}
+
+header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ul {
+    margin-left: auto;
+}
+header ul li {
+    margin: 0 15px;
+}
+
+header ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+header ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
