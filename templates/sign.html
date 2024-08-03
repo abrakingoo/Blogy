@@ -1,15 +1,20 @@
 {{ template "header.html" . }}
 <main>
-    <form action="/authSignUp" method="post">
-        <label for="first">First Name</label>
-        <input type="text" name="first" id="firts">
-        <label for="last">Last Name</label>
-        <input type="text" name="last" id="last">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-        <input type="submit" value="Sign Up">
-    </form>
+    <div class="container">
+        <form action="/authSignUp" method="post">
+            <label for="first">First Name</label>
+            <input type="text" name="first" id="firts">
+            <label for="last">Last Name</label>
+            <input type="text" name="last" id="last">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+            <input type="submit" value="Sign Up">
+        </form>
+        <div>
+            <a href="/login">Sign in</a>
+        </div>
+    </div>
 </main>
 {{ template "footer.html" . }}
