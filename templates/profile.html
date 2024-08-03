@@ -1,14 +1,20 @@
 {{ template "header.html" . }}
 <main>
-    <h1>{{.Name}}</h1>
-    <p>This is the content of your profile.</p>
-    <h4>Blogs</h4>
-    {{if .Blogs}}
-        {{range .Blogs}}
-            {{.}}
-        {{end}}
-    {{else}}
-        <p>No Blog Posts Yet</p>
-    {{end}}
+    <div class="name">
+        <h1>Blogs</h1>
+    </div>
+    <div class="blogs">
+        <div>
+            {{if .Blogs}}
+                {{range .Blogs}}
+                    <div class="blog">
+                        <p>{{.}}</p>
+                    </div>
+                {{end}}
+            {{else}}
+                <p class="no-blogs">No Blog Posts Yet</p>
+            {{end}}
+        </div>
+    </div>
 </main>
 {{ template "footer.html" . }}
