@@ -38,11 +38,13 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 		Title        string
 		VerifiedUser bool
 		Name         string
+		UserName	string
 		Blogs	[]data.Blog
 	}{
 		Title:        "Profile",
 		VerifiedUser: true, // Adjust as needed based on user verification
 		Name:         auth.AuthenticatedUser.Name,
+		UserName: auth.AuthenticatedUser.Name,
 		Blogs: auth.AuthenticatedUser.Blogs,
 	}
 
