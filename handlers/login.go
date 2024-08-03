@@ -5,8 +5,8 @@ import (
 	"practice/utils"
 )
 
-func LoginHandler(w http.ResponseWriter, r *http.Request){
-	data := struct{
+func LoginHandler(w http.ResponseWriter, r *http.Request) {
+	data := struct {
 		Title string
 	}{
 		Title: "login",
