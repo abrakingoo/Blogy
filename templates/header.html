@@ -4,25 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/profile.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/signup.css">
     <title>{{ .Title }}</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
     <header>
-        <div>
+        <div class="h1">
             <h1>Welcome To Blogy</h1>
         </div>
-        <div>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="">About</a></li>
-                <li>
+        <div class="ul">
                     {{ if .VerifiedUser }}
-                    <a href="/logout">logout</a></li>
+                    <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="/profile">{{.UserName}}</a></li>
+                    <li><a href="/logout">logout</a></li>
+                    </ul>
                     {{else}}
+                     <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li>
                     <a href="/login">login</a></li>
+                    </ul>
                     {{end}}
-            </ul>
         </div>
     </header>
