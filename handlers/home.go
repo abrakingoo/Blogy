@@ -6,10 +6,10 @@ import (
 )
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-    data := struct {
-        Title string
-    }{
-        Title: "Home",
-    }
+	data := struct {
+		Title string
+	}{
+		Title: "Home",
+	}
 	utils.RenderTemplate(w, "index.html", data)
 }
