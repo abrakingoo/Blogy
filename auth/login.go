@@ -51,5 +51,16 @@ func AuthLogin(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	http.Error(w, "user not found", http.StatusNotFound)
+	tmpl, _ := template.ParseFiles("templates/errors.html")
+
+	data := struct {
+		Message string
+		Redirect string
+		Inst string
+	}{
+		Message: "Account Not Found",
+		Redirect: "/signup",
+		Inst: "Sign up",
+	}
+	tmpl.Execute(w, data)
 }
