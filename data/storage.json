@@ -1,2 +1,16 @@
 [
+ {
+  "name": "john doe",
+  "email": "example@test.com",
+  "password": "123",
+  "created_at": "2024-08-03T14:59:11.896627353+03:00",
+  "blogs": []
+ },
+ {
+  "name": "Brian McNignt",
+  "email": "example3@test.com",
+  "password": "123",
+  "created_at": "2024-08-03T15:07:29.154604816+03:00",
+  "blogs": []
+ }
 ]
