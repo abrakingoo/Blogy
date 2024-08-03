@@ -12,5 +12,12 @@
   "password": "123",
   "created_at": "2024-08-03T15:07:29.154604816+03:00",
   "blogs": []
+ },
+ {
+  "name": "Peter Parker",
+  "email": "example34@test.com",
+  "password": "123",
+  "created_at": "2024-08-03T16:32:09.68648204+03:00",
+  "blogs": []
  }
 ]
