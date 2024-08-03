@@ -9,7 +9,6 @@ import (
 func WriteToDataBase(users []data.User, newUser data.User) (bool, error) {
 	filepath := "data/storage.json"
 
-	if len(users) == 0 {
 		users = append(users, newUser)
 
 		marshaledUsers, err := json.MarshalIndent(users, "", " ")
@@ -25,7 +24,4 @@ func WriteToDataBase(users []data.User, newUser data.User) (bool, error) {
 		}
 
 		return true, nil
-	}
-
-	return true, nil
 }
