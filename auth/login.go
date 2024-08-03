@@ -6,9 +6,11 @@ import (
 
 	"practice/data"
 	"practice/utils"
+	"github.com/gorilla/sessions"
 )
 
 var AuthenticatedUser *data.User
+var Store = sessions.NewCookieStore([]byte("SESSION_KEY"))
 
 func AuthLogin(w http.ResponseWriter, r *http.Request) {
 	users, err := utils.ReadDataBase()
@@ -20,18 +22,21 @@ func AuthLogin(w http.ResponseWriter, r *http.Request) {
 		}{
 			Message:  err.Error(),
 			Redirect: "/signup",
-			Inst:     "SignUp",
+			Inst:     "Sign Up",
 		}
 
 		w.WriteHeader(http.StatusNotFound)
-		tpl, _ := template.ParseFiles("templates/errors.html")
+		tpl, tplErr := template.ParseFiles("templates/errors.html")
+		if tplErr != nil {
+			http.Error(w, "Error loading template: "+tplErr.Error(), http.StatusInternalServerError)
+			return
+		}
 		tpl.Execute(w, data)
 		return
 	}
 
-	err = r.ParseForm()
-	if err != nil {
-		http.Error(w, "error parsing user data", http.StatusInternalServerError)
+	if err := r.ParseForm(); err != nil {
+		http.Error(w, "error parsing form values", http.StatusInternalServerError)
 		return
 	}
 
@@ -42,6 +47,13 @@ func AuthLogin(w http.ResponseWriter, r *http.Request) {
 		if user.Email == userEmail {
 			if user.Password == password {
 				AuthenticatedUser = &user
+				session, _ := Store.Get(r, "userSession")
+				session.Values["email"] = userEmail
+				err := session.Save(r, w)
+				if err != nil {
+					http.Error(w, "error saving session: "+err.Error(), http.StatusInternalServerError)
+					return
+				}
 				http.Redirect(w, r, "/profile", http.StatusSeeOther)
 				return
 			} else {
@@ -51,16 +63,20 @@ func AuthLogin(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	tmpl, _ := template.ParseFiles("templates/errors.html")
+	tmpl, tplErr := template.ParseFiles("templates/errors.html")
+	if tplErr != nil {
+		http.Error(w, "Error loading template: "+tplErr.Error(), http.StatusInternalServerError)
+		return
+	}
 
 	data := struct {
-		Message string
+		Message  string
 		Redirect string
-		Inst string
+		Inst     string
 	}{
-		Message: "Account Not Found",
+		Message:  "Account Not Found",
 		Redirect: "/signup",
-		Inst: "Sign up",
+		Inst:     "Sign Up",
 	}
 	tmpl.Execute(w, data)
 }
