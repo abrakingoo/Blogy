@@ -3,12 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="/static/js/ hamburger.js" defer></script>
     <link rel="stylesheet" href="/static/css/header.css" />
     <link rel="stylesheet" href="/static/css/login.css" />
     <link rel="stylesheet" href="/static/css/profile.css" />
     <link rel="stylesheet" href="/static/css/footer.css" />
     <link rel="stylesheet" href="/static/css/signup.css" />
-    <link rel="stylesheet" href="/static/css/about.css">
+    <link rel="stylesheet" href="/static/css/about.css" />
     <title>{{ .Title }}</title>
     <link rel="stylesheet" href="/static/style.css" />
   </head>
@@ -17,33 +32,61 @@
     <header>
       <div class="h1">
         <a href="/">
-            <h1>Blogy</h1>
+          <h1 class="logo">Blogy</h1>
         </a>
       </div>
       <div class="ul">
         <div class="search">
           <form action="" method="post" id="search-form">
-            <input type="text" name="search" id="search" placeholder="Search Blogy .."/>
+            <input
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Search Blogy .."
+            />
             <input type="button" value="Search" class="btn" />
           </form>
+          <nav class="humb">
+            <button type="button"><i class="fas fa-bars"></i></button>
+            {{ if .VerifiedUser }}
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/profile">{{.UserName}}</a></li>
+              <li><a href="/logout">logout</a></li>
+            </ul>
+            {{else}}
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li>
+                <a href="/login">login</a>
+              </li>
+            </ul>
+            {{end}}
+          </nav>
         </div>
         {{ if .VerifiedUser }}
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/profile">{{.UserName}}</a></li>
-          <li><a href="/logout">logout</a></li>
+          <li class="anchor"><a href="/">Home</a></li>
+          <li class="anchor"><a href="/about">About</a></li>
+          <li class="anchor"><a href="/profile">{{.UserName}}</a></li>
+          <li class="anchor"><a href="/logout">logout</a></li>
         </ul>
         {{else}}
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li>
+          <li class="anchor"><a href="/">Home</a></li>
+          <li class="anchor"><a href="/about">About</a></li>
+          <li class="anchor">
             <a href="/login">login</a>
           </li>
         </ul>
         {{end}}
       </div>
     </header>
+    <nav>
+      <i class="fas fa-bars"></i>
+    </nav>
+    <div class="space"></div>
   </body>
 </html>
