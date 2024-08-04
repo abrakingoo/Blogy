@@ -36,7 +36,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 		signed   bool
 		userName string
 	)
-	
+
 	if auth.AuthenticatedUser != nil {
 		signed = true
 		userName = auth.AuthenticatedUser.Name
