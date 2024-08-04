@@ -17,6 +17,7 @@ func main() {
 	http.HandleFunc("/authSignUp", auth.AuthSignup)
 	http.HandleFunc("/profile", handlers.ProfileHandler)
 	http.HandleFunc("/logout", handlers.LogOutHandler)
+	http.HandleFunc("/about", handlers.AboutHandler)
 	log.Println("http server running on http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
