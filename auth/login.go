@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"text/template"
 
+	"github.com/gorilla/sessions"
 	"practice/data"
 	"practice/utils"
-	"github.com/gorilla/sessions"
 )
 
 var AuthenticatedUser *data.User
