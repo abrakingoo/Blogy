@@ -3,17 +3,26 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial,
-    sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   scroll-behavior: smooth;
 }
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: rgba(13, 13, 13, 1);
   height: 100vh;
   width: 100%;
+}
+
+.logo {
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: italic;
+  margin-top: 3px;
+  margin-bottom: 0;
+  padding: 5px;
 }
 
 header {
@@ -40,7 +49,7 @@ header .h1 a {
 
 header div h1 {
   margin-right: auto;
-  margin-left: 30px;
+  margin-left: 20px;
   color: white;
   align-self: left;
 }
@@ -50,6 +59,7 @@ header ul {
   margin: 0;
   padding: 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -75,7 +85,10 @@ header ul li a:hover {
   background-color: #555;
   border-radius: 5px;
 }
-
+.search {
+  display: flex;
+  gap: 20px;
+}
 #search {
   outline: none;
   padding: 3px;
@@ -91,4 +104,93 @@ header ul li a:hover {
   padding: 3px 5px;
   border-radius: 3px 5px;
   border: none;
+}
+
+.space {
+  width: 100%;
+  height: 10px;
+}
+
+.humb {
+  display: none;
+  margin-right: 15px;
+  z-index: 999;
+}
+
+
+.humb .fas {
+  /* width: 100%; */
+   position: relative;
+}
+
+.humb ul {
+  position: absolute;
+  height: 50vh;
+  top: 80px;
+  right: 10px;
+  gap: 10px;
+  background-color: #555;
+  border-radius: 3px;
+  padding: 15px;
+  display: none;
+}
+
+.hum ul li a {
+  padding: 20px;
+}
+
+/*  */
+
+@media screen and (max-width: 645px) {
+  header {
+    padding: 2px;
+    margin: 0;
+  }
+  .space {
+    height: 0px;
+  }
+  .ul {
+    width: 100%;
+  }
+  .ul ul .anchor {
+    display: none;
+  }
+  .logo {
+    padding: 2px;
+    margin-left: 5px;
+  }
+
+  #submit,
+  #active {
+    text-overflow: clip;
+    white-space: nowrap; /* Ensures text does not wrap to the next line */
+    overflow: hidden; /* Hides the overflow text */
+  }
+
+  .humb {
+    display: flex;
+  }
+
+  .humb ul {
+    width: 100%;
+  }
+  .fas {
+    font-size: large;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+  }
+
+  .search {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 0px 8px 0px;
+  }
+
+  #search-form {
+    margin-left: 15px;
+  }
 }
