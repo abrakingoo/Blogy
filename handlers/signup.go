@@ -7,10 +7,10 @@ import (
 
 func SignUpHandler(w http.ResponseWriter, r *http.Request) {
 	data := struct {
-		Title string
+		Title        string
 		VerifiedUser bool
 	}{
-		Title: "signup",
+		Title:        "signup",
 		VerifiedUser: false,
 	}
 	utils.RenderTemplate(w, "sign.html", data)

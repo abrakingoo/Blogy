@@ -24,8 +24,7 @@ func LogOutHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-
-		data := struct {
+	data := struct {
 		Title        string
 		VerifiedUser bool
 		UserName     string
@@ -37,4 +36,3 @@ func LogOutHandler(w http.ResponseWriter, r *http.Request) {
 
 	utils.RenderTemplate(w, "index.html", data)
 }
-

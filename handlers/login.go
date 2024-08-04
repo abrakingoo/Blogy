@@ -8,10 +8,10 @@ import (
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
 
 	data := struct {
-		Title string
+		Title        string
 		VerifiedUser bool
 	}{
-		Title: "login",
+		Title:        "login",
 		VerifiedUser: false,
 	}
 
