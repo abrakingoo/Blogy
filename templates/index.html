@@ -1,6 +1,35 @@
 {{ template "header.html" . }}
-<main>
-    <h1>Welcome to the Home Page</h1>
-    <p>This is the content of the home page.</p>
+<main class="home-page-main">
+  <div class="container">
+    <div class="categories">
+      <ul>
+        <li>
+          <form action="/category" method="post">
+            <input type="hidden" name="category" value="trending" />
+            <input type="submit" value="Trending" id="active" />
+          </form>
+        </li>
+        <li>
+          <form action="/category" method="post">
+            <input type="hidden" name="category" value="entertainment" />
+            <input type="submit" value="Entertainment"  id="submit"  />
+          </form>
+        </li>
+        <li>
+          <form action="/category" method="post">
+            <input type="hidden" name="category" value="science" />
+            <input type="submit" value="Science & Technology"  id="submit"  />
+          </form>
+        </li>
+        <li>
+          <form action="/category" method="post">
+            <input type="hidden" name="category" value="lifestyle" />
+            <input type="submit" value="Lifestyle"  id="submit"  />
+          </form>
+        </li>
+      </ul>
+    </div>
+    <div class="pages">{{ template "category.html" .}}</div>
+  </div>
 </main>
 {{ template "footer.html" . }}
