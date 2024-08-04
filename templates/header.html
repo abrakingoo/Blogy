@@ -1,38 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/header.css">
-    <link rel="stylesheet" href="/static/css/login.css">
-    <link rel="stylesheet" href="/static/css/profile.css">
-    <link rel="stylesheet" href="/static/css/footer.css">
-    <link rel="stylesheet" href="/static/css/signup.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/header.css" />
+    <link rel="stylesheet" href="/static/css/login.css" />
+    <link rel="stylesheet" href="/static/css/profile.css" />
+    <link rel="stylesheet" href="/static/css/footer.css" />
+    <link rel="stylesheet" href="/static/css/signup.css" />
+    <link rel="stylesheet" href="/static/css/about.css">
     <title>{{ .Title }}</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="h1">
-            <h1>Welcome To Blogy</h1>
+      <div class="h1">
+        <a href="/">
+            <h1>Blogy</h1>
+        </a>
+      </div>
+      <div class="ul">
+        <div class="search">
+          <form action="" method="post" id="search-form">
+            <input type="text" name="search" id="search" placeholder="Search Blogy .."/>
+            <input type="button" value="Search" class="btn" />
+          </form>
         </div>
-        <div class="ul">
-                    {{ if .VerifiedUser }}
-                    <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="/profile">{{.UserName}}</a></li>
-                    <li><a href="/logout">logout</a></li>
-                    </ul>
-                    {{else}}
-                     <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li>
-                    <a href="/login">login</a></li>
-                    </ul>
-                    {{end}}
-        </div>
+        {{ if .VerifiedUser }}
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/profile">{{.UserName}}</a></li>
+          <li><a href="/logout">logout</a></li>
+        </ul>
+        {{else}}
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li>
+            <a href="/login">login</a>
+          </li>
+        </ul>
+        {{end}}
+      </div>
     </header>
+  </body>
+</html>
