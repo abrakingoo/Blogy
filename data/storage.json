@@ -33,5 +33,19 @@
   "password": "123",
   "created_at": "2024-08-03T20:16:23.443397628+03:00",
   "blogs": []
+ },
+ {
+  "name": "Tony Stark",
+  "email": "example27@test.com",
+  "password": "123",
+  "created_at": "2024-08-04T00:36:31.438674537+03:00",
+  "blogs": []
+ },
+ {
+  "name": "Bam Malik",
+  "email": "example00@gmail.com",
+  "password": "123",
+  "created_at": "2024-08-04T11:19:08.143802499+03:00",
+  "blogs": []
  }
 ]
