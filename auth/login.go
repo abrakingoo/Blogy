@@ -4,13 +4,25 @@ import (
 	"net/http"
 	"text/template"
 
-	"github.com/gorilla/sessions"
 	"practice/data"
 	"practice/utils"
+
+	"github.com/gorilla/sessions"
 )
 
 var AuthenticatedUser *data.User
 var Store = sessions.NewCookieStore([]byte("SESSION_KEY"))
+
+func init() {
+	// Set cookie options
+	Store.Options = &sessions.Options{
+		Path:     "/",
+		MaxAge:   3600,                 // 1 hour
+		Secure:   true,                 // only send cookies over HTTPS
+		HttpOnly: true,                 // prevent JavaScript access to cookies
+		SameSite: http.SameSiteLaxMode, // prevent CSRF, adjust as needed
+	}
+}
 
 func AuthLogin(w http.ResponseWriter, r *http.Request) {
 	users, err := utils.ReadDataBase()
@@ -36,7 +48,7 @@ func AuthLogin(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if err := r.ParseForm(); err != nil {
-		http.Error(w, "error parsing form values", http.StatusInternalServerError)
+		http.Error(w, "Error parsing form values", http.StatusInternalServerError)
 		return
 	}
 
@@ -51,13 +63,24 @@ func AuthLogin(w http.ResponseWriter, r *http.Request) {
 				session.Values["email"] = userEmail
 				err := session.Save(r, w)
 				if err != nil {
-					http.Error(w, "error saving session: "+err.Error(), http.StatusInternalServerError)
+					http.Error(w, "Error saving session: "+err.Error(), http.StatusInternalServerError)
 					return
 				}
 				http.Redirect(w, r, "/profile", http.StatusSeeOther)
 				return
 			} else {
-				http.Error(w, "invalid username/password", http.StatusUnauthorized)
+
+				data := struct {
+					Title        string
+					VerifiedUser bool
+					ErrorMessage string
+				}{
+					Title:        "login",
+					VerifiedUser: false,
+					ErrorMessage: "Invalid username or password",
+				}
+
+				utils.RenderTemplate(w, "login.html", data)
 				return
 			}
 		}

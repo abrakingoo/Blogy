@@ -13,10 +13,15 @@
       href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
+
     <script src="/static/js/ hamburger.js" defer></script>
     <link rel="stylesheet" href="/static/css/header.css" />
     <link rel="stylesheet" href="/static/css/login.css" />
@@ -50,16 +55,35 @@
             <button type="button"><i class="fas fa-bars"></i></button>
             {{ if .VerifiedUser }}
             <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/profile">{{.UserName}}</a></li>
-              <li><a href="/logout">logout</a></li>
+              <li>
+                <span><i class="fas fa-home"></i> </span>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <span><i class="fas fa-info-circle"></i> </span>
+                <a href="/about">About</a>
+              </li>
+              <li>
+                <span><i class="fas fa-user"></i> </span>
+                <a href="/profile">{{.UserName}}</a>
+              </li>
+              <li>
+                <span><i class="fas fa-sign-out-alt"></i> </span>
+                <a href="/logout">logout</a>
+              </li>
             </ul>
             {{else}}
             <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
               <li>
+                <span><i class="fas fa-home"></i> </span>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <span><i class="fas fa-info-circle"></i> </span>
+                <a href="/about">About</a>
+              </li>
+              <li>
+                <span><i class="fa-solid fa-right-to-bracket"></i></span>
                 <a href="/login">login</a>
               </li>
             </ul>
@@ -68,16 +92,35 @@
         </div>
         {{ if .VerifiedUser }}
         <ul>
-          <li class="anchor"><a href="/">Home</a></li>
-          <li class="anchor"><a href="/about">About</a></li>
-          <li class="anchor"><a href="/profile">{{.UserName}}</a></li>
-          <li class="anchor"><a href="/logout">logout</a></li>
+          <li class="anchor">
+            <span><i class="fas fa-home"></i> </span>
+            <a href="/">Home</a>
+          </li>
+          <li class="anchor">
+            <span><i class="fas fa-info-circle"></i> </span>
+            <a href="/about">About</a>
+          </li>
+          <li class="anchor">
+            <span><i class="fas fa-user"></i> </span>
+            <a href="/profile">{{.UserName}}</a>
+          </li>
+          <li class="anchor">
+            <span><i class="fas fa-sign-out-alt"></i> </span>
+            <a href="/logout">logout</a>
+          </li>
         </ul>
         {{else}}
         <ul>
-          <li class="anchor"><a href="/">Home</a></li>
-          <li class="anchor"><a href="/about">About</a></li>
           <li class="anchor">
+            <span><i class="fas fa-home"></i> </span>
+            <a href="/">Home</a>
+          </li>
+          <li class="anchor">
+            <span><i class="fas fa-info-circle"></i> </span>
+            <a href="/about">About</a>
+          </li>
+          <li class="anchor">
+            <span><i class="fa-solid fa-right-to-bracket"></i></span>
             <a href="/login">login</a>
           </li>
         </ul>

@@ -1,3 +1,9 @@
-<div class="content">
-    <h4>Hello from {{.Title}}</h4>
-</div>
+{{ define "content" }}
+<h2>{{ .Category.Name }}</h2>
+<p>{{ .Category.Description }}</p>
+<ul>
+  {{ range .Category.Items }}
+    <li>{{ . }}</li>
+  {{ end }}
+</ul>
+{{ end }}
