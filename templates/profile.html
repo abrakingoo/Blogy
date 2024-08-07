@@ -1,5 +1,22 @@
 {{ template "header.html" . }}
 <main>
+    <h4>Welcome, {{.Name}}</h4>
+ <section class="post-section">
+    <ul class="post-list">
+      <li class="post-item">
+        <p class="post-heading">New Post</p>
+        <div class="post-form-container">
+          <form class="post-form" action="" method="post">
+            <div id="editor-container" style="height: 300px;"></div>
+            <input type="hidden" name="content" id="hidden-input">
+            <div class="post-button-container">
+              <input class="post-submit" type="submit" value="Post">
+            </div>
+          </form>
+        </div>
+      </li>
+    </ul>
+  </section>
     <div class="name">
         <h1>Blogs</h1>
     </div>
