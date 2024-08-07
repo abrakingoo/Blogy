@@ -18,7 +18,7 @@ func init() {
 	Store.Options = &sessions.Options{
 		Path:     "/",
 		MaxAge:   3600,                 // 1 hour
-		Secure:   true,                 // only send cookies over HTTPS
+		// Secure:   true,                 // only send cookies over HTTPS
 		HttpOnly: true,                 // prevent JavaScript access to cookies
 		SameSite: http.SameSiteLaxMode, // prevent CSRF, adjust as needed
 	}
