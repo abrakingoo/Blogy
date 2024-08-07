@@ -10,7 +10,7 @@ import (
 )
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	
+
 	var articles data.Article
 
 	// Retrieve the user session
@@ -36,18 +36,16 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error Reading Response Data: "+err.Error(), http.StatusInternalServerError)
 	}
 
-	
 	// fmt.Println(string(resBody))
-	
+
 	err = json.Unmarshal(resBody, &articles)
-	
+
 	if err != nil {
 		http.Error(w, "Error Unmarshalling Response Data: "+err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	
-		// Get email from session
+	// Get email from session
 	email, ok := cookie.Values["email"].(string)
 	if !ok || email == "" {
 		// Redirect to the public home page
@@ -55,12 +53,12 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 			Title        string
 			VerifiedUser bool
 			UserName     string
-			Trending	data.Article
+			Trending     data.Article
 		}{
 			Title:        "Home",
 			VerifiedUser: false, // Indicates the user is not signed in
 			UserName:     "",
-			Trending: articles,
+			Trending:     articles,
 		}
 		utils.RenderTemplate(w, "index.html", data)
 		return
@@ -81,12 +79,12 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 		Title        string
 		VerifiedUser bool
 		UserName     string
-		Trending 	data.Article
+		Trending     data.Article
 	}{
 		Title:        "Home",
 		VerifiedUser: signed,
 		UserName:     userName,
-		Trending: articles,
+		Trending:     articles,
 	}
 
 	utils.RenderTemplate(w, "index.html", data)
