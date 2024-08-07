@@ -1,0 +1,9 @@
+{{define "Trends"}}
+<h1>Helo Whats trending</h1>
+{{.Category.Description}}
+<ul>
+    {{range .Category.Items}}
+        <li>{{.}}</li>
+    {{end}}
+</ul>
+{{end}}

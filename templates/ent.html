@@ -1,0 +1,9 @@
+{{define "Ent"}}
+<h1>Helo Whats New in Entertainment</h1>
+{{.Category.Description}}
+<ul>
+    {{range .Category.Items}}
+        <li>{{.}}</li>
+    {{end}}
+</ul>
+{{end}}

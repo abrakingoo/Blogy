@@ -1,0 +1,9 @@
+{{define "Lifestyle"}}
+<h1>Get Everything About Making Your Life Better"</h1>
+{{.Category.Description}}
+<ul>
+    {{range .Category.Items}}
+        <li>{{.}}</li>
+    {{end}}
+</ul>
+{{end}}

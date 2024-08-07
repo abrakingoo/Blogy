@@ -1,0 +1,50 @@
+{{define "All"}}
+<style>
+  .article {
+    width: 100%;
+    background-color: #2c2c2c;
+    border: 1px solid #dddddd; /* Light Gray Border */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 10px;
+    color: white;
+  }
+  .article:last-child {
+    margin-bottom: 60px;
+  }
+  .article p {
+    margin: 10px 0;
+    color: white;
+  }
+  .article p label {
+    font-weight: bold;
+  }
+  .site-url {
+    width: 100%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: wrap;
+  }
+</style>
+
+{{if .Trending.Articles}} {{range .Trending.Articles}}
+<div class="article">
+  <p><label>Author:</label> {{if .Author}} {{.Author}} {{else}} null {{end}}</p>
+  <p><label>Title:</label> {{if .Title}} {{.Title}} {{else}} null {{end}}</p>
+  <p><label>Description:</label> {{if .Description}} {{.Description}} {{else}} null {{end}}</p>
+  <p class="site-url"><label>URL:</label> {{.URL}}</p>
+  <p><label>Image URL:</label> 
+    {{if .Image}}
+    <img
+      src="{{.Image}}"
+      alt="Article Image"
+      style="max-width: 100%; height: auto"
+    />
+    {{else}} null {{end}}
+  </p>
+  <p><label>Published At:</label> {{if .PublishedAt}} {{.PublishedAt}} {{else}} null {{end}}</p>
+  <p><label>Content:</label> {{if .Content}} {{.Content}} {{else}} null {{end}}</p>
+</div>
+{{end}} {{else}} No Data Found {{end}} 
+{{end}}
+

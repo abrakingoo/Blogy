@@ -1,0 +1,9 @@
+{{define "technolody"}}
+<h1>Get Everything About Science & Technolody In This Section Cheers!"</h1>
+{{.Category.Description}}
+<ul>
+    {{range .Category.Items}}
+        <li>{{.}}</li>
+    {{end}}
+</ul>
+{{end}}

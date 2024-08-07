@@ -1,0 +1,15 @@
+{{define "TrendingCategoryContent"}}
+<div class="trending-home">
+    {{if eq .Title "Trending"}}
+        {{template "Trends" .}}
+    {{else if eq .Title "Entertainment"}}
+        {{template "Ent" .}}
+    {{else if eq .Title "technolody"}}
+        {{template "technolody" .}}
+    {{else if eq .Title "Lifestyle"}}
+        {{template "Lifestyle" .}}
+    {{else}}
+        {{template "All" .}}
+    {{end}}
+</div>
+{{end}}
