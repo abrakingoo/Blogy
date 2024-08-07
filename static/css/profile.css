@@ -1,5 +1,5 @@
 main {
-  max-width: 800px;
+  max-width: 900px;
   height: 100vh;
   margin: 80px auto;
   padding: 20px;
@@ -8,6 +8,8 @@ main {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   overflow-y: scroll;
   position: relative;
 }
@@ -30,7 +32,6 @@ main::-webkit-scrollbar {
 
 h1 {
   font-size: 2em;
-  /* margin-bottom: 10px; */
   color: white;
 }
 
@@ -38,13 +39,11 @@ p {
   font-size: 1.1em;
   line-height: 1.6;
   color: #666;
-  /* margin-bottom: 20px; */
 }
 
 h4 {
   font-size: 1.5em;
   color: #333;
-  /* margin-bottom: 20px; */
 }
 
 .blog {
@@ -72,15 +71,15 @@ h4 {
 
 .home-page-main .container {
   width: 100%;
-  top: 0;
   position: absolute;
+  top: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   /* border: 1px solid red; */
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 .home-page-main .container .categories {
@@ -88,7 +87,8 @@ h4 {
   padding: 4px 5x;
   margin-top: 0;
   margin-bottom: auto;
-  position: relative;
+  position:relative;
+  margin-bottom: 10px;
 }
 
 .home-page-main .container .categories ul {
@@ -100,33 +100,45 @@ h4 {
   justify-content: space-between;
 }
 
+
 .home-page-main .container .categories ul li {
   width: 24.9%;
   box-sizing: border-box;
   text-align: center;
-  background-color: #333;
-  /* padding: 5px 20px; */
+  background-color: rgba(13, 13, 13, 1);
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 2px;
 }
 
-.home-page-main .container .categories ul li form #submit {
+.home-page-main .container .categories ul li a {
   width: 100%;
-  cursor: pointer;
-  padding: 10px 15px;
-  border: none;
-  background-color: rgba(13, 13, 13, 1);
-  color: white;
 }
-.home-page-main .container .categories ul li form #active {
-  width: 100%;
-  cursor: pointer;
-  padding: 10px 15px;
-  border: none;
+
+.home-page-main .container .categories ul:hover li {
+  opacity: 0.5; /* Change this value to the desired opacity */
+}
+
+.home-page-main .container .categories ul li:hover {
   background-color: #333;
-  color: white;
+  border: 1px solid #8e9f8e;
+  border-radius: 5px 5px 0px 0px;
+  box-sizing: border-box;
+  opacity: 1;
+}
+
+
+.home-page-main .container .categories ul li a:hover {
+  color: #00ffff;
+}
+
+.active {
   border-bottom: 2px solid rgb(33, 243, 229);
 }
-.home-page-main .container .categories ul li form #submit:hover, #active:hover {
-  background-color: #555;
+
+.home-page-main .container .categories ul li form #submit:hover,
+#active:hover {
+  background-color: #333;
   border-radius: 5px;
 }
 
@@ -144,4 +156,98 @@ h4 {
 .home-page-main .container .pages h4 {
   color: white;
   padding: 10px;
+}
+
+/* post section */
+ .post-section {
+        padding: 20px;
+        background-color: #f9f9f9; /* Light gray background */
+        border-radius: 8px; /* Rounded corners */
+        max-width: 800px; /* Limit the width */
+        margin: 20px auto; /* Center horizontally */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    .post-list {
+        list-style: none; /* Remove default list bullets */
+        padding: 0; /* Remove default padding */
+        margin: 0; /* Remove default margin */
+    }
+
+    .post-item {
+        padding: 20px;
+        border-radius: 8px; /* Rounded corners */
+        margin-bottom: 20px; /* Space between items */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        background-color: #333;
+    }
+
+    .post-heading {
+        font-size: 1.2em; /* Larger font size for the heading */
+        font-weight: bold; /* Make text bold */
+        margin-bottom: 10px; /* Space below the heading */
+        background-color: #333;
+    }
+
+    .post-form-container {
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+    }
+
+    .post-button-container {
+        text-align: right; /* Align the button to the right */
+    }
+
+    .post-submit {
+        background-color: #007bff; /* Blue background color */
+        color: #fff; /* White text color */
+        border: none; /* Remove default border */
+        border-radius: 4px; /* Rounded corners */
+        padding: 10px 20px; /* Padding inside the button */
+        font-size: 1em; /* Consistent font size */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s; /* Smooth background color transition */
+    }
+
+    .post-submit:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    /* toolbar */
+    /* Change the font color of the Quill toolbar buttons */
+.ql-toolbar {
+    background-color: #ffffff; /* Background color of the toolbar */
+    border: 1px solid #ddd; /* Border around the toolbar */
+}
+
+.ql-toolbar .ql-stroke {
+    stroke: #333; /* Font color for stroke icons (like bold, italic) */
+}
+
+.ql-toolbar .ql-fill {
+    fill: #333; /* Font color for fill icons (like headers) */
+}
+
+/* Specific customization for color and background pickers */
+.ql-toolbar .ql-picker {
+    color: #333; /* Font color for picker labels */
+    border: 1px solid #ddd; /* Border for pickers */
+}
+
+.ql-toolbar .ql-picker-label {
+    color: #333; /* Font color for picker labels */
+    background: #ffffff; /* Background color for picker labels */
+}
+
+.ql-toolbar .ql-picker-options .ql-picker-item {
+    color: #333; /* Font color for picker options */
+}
+
+.ql-toolbar .ql-picker-options .ql-active {
+    color: #007bff; /* Font color for active picker option */
+}
+
+/* Customize the 'clean' button */
+.ql-toolbar .ql-clean {
+    color: #007bff; /* Font color for the 'clean' button */
 }
