@@ -3,29 +3,17 @@
   <div class="container">
     <div class="categories">
       <ul>
-        <li>
-          <form  id="trending-form" action="/category" method="post">
-            <input type="hidden" name="category" value="trending" />
-            <input type="submit" value="Trending" id="active" />
-          </form>
+        <li class="categs active">
+          <a href="/trending">Trending</a>
         </li>
-        <li>
-          <form action="/category" method="post">
-            <input type="hidden" name="category" value="entertainment" />
-            <input type="submit" value="Entertainment" id="submit" />
-          </form>
+        <li class="categs">
+          <a href="/entertainment">Entertainment</a>
         </li>
-        <li>
-          <form action="/category" method="post">
-            <input type="hidden" name="category" value="science" />
-            <input type="submit" value="Science & Technology" id="submit" />
-          </form>
+        <li class="categs">
+          <a  href="/science&technolody">Science & Technology</a>
         </li>
-        <li>
-          <form action="/category" method="post">
-            <input type="hidden" name="category" value="lifestyle" />
-            <input type="submit" value="Lifestyle" id="submit" />
-          </form>
+        <li class="categs">
+          <a  href="/lifestyle">Lifestyle</a>
         </li>
       </ul>
     </div>
