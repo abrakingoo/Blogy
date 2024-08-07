@@ -139,6 +139,11 @@ header ul li a:hover {
   padding: 20px;
 }
 
+.trending-home{
+  background-color: #333;
+  padding: 10px;
+}
+
 /*  */
 
 @media screen and (max-width: 645px) {
